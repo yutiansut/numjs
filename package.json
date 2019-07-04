@@ -15,7 +15,8 @@
     "ndarray-gemm": "^1.0.0",
     "ndarray-ops": "^1.2.2",
     "sharp": "^0.17.3",
-    "typedarray-pool": "^1.1.0"
+    "typedarray-pool": "^1.1.0",
+    "snyk": "^1.190.0"
   },
   "devDependencies": {
     "browserify-shim": "^3.8.12",
@@ -55,7 +56,9 @@
   "scripts": {
     "test": "grunt test",
     "preversion": "grunt test && git ci dist -m 'bump version' --allow-empty ",
-    "postversion": "npm publish && grunt doc"
+    "postversion": "npm publish && grunt doc",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -105,5 +108,6 @@
       "nj",
       "Image"
     ]
-  }
+  },
+  "snyk": true
 }
